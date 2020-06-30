@@ -45,7 +45,7 @@ connect_from_port_20=YES
 dirlist_enable=NO
 download_enable=NO
 EOFVSFTPD
-
+#######
 cat /etc/passwd | cut -d ":" -f 1 | sort > /etc/vsftpd/denied_users; mkdir /etc/vsftpd/users
 sed -e '/'$My_FTP_User'/d' < /etc/vsftpd/denied_users > /etc/vsftpd/denied_users.tmp
 mv /etc/vsftpd/denied_users.tmp /etc/vsftpd/denied_users
@@ -62,7 +62,7 @@ download_enable=YES
 local_root=/var/ftp/virtual_users/$My_FTP_User/
 write_enable=YES
 EOFVSFTPU
-
+#######
 echo $My_FTP_User > /etc/vsftpd/accounts.tmp
 echo $My_FTP_Password >> /etc/vsftpd/accounts.tmp
 /usr/bin/db_load -T -t hash -f  /etc/vsftpd/accounts.tmp /etc/vsftpd/accounts.db
